@@ -16,7 +16,8 @@ c.COUNTRY,
 p.PRODUCTID,
 p.CATEGORY,
 p.PRODUCTNAME,
-p.SUBCATEGORY
+p.SUBCATEGORY,
+{{ markup('ordersellingprice', 'ordercostprice') }} AS markup
 FROM {{ ref('raw_orders') }} AS o
 LEFT JOIN {{ ref('raw_customers') }} AS c ON o.CUSTOMERID = c.CUSTOMERID
 LEFT JOIN {{ ref('raw_products') }} AS p ON o.PRODUCTID = p.PRODUCTID
